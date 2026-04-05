@@ -1,0 +1,43 @@
+{
+  "name": "usage-estimate",
+  "version": "0.1.0",
+  "description": "Token estimation plugin for Claude Code. Shows estimated token count before submission and optionally blocks prompts exceeding a configurable threshold.",
+  "type": "module",
+  "bin": {
+    "usage-estimate": "bin/cli.mjs"
+  },
+  "files": [
+    "bin/",
+    ".claude-plugin/",
+    "hooks/",
+    "skills/",
+    "pnpm-lock.yaml"
+  ],
+  "keywords": [
+    "claude",
+    "claude-code",
+    "plugin",
+    "tokens",
+    "usage",
+    "estimation"
+  ],
+  "author": {
+    "name": "Kumar Anirudha",
+    "url": "https://github.com/anistark"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anistark/usage-estimate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/anistark/usage-estimate/issues"
+  },
+  "homepage": "https://github.com/anistark/usage-estimate#readme",
+  "dependencies": {
+    "js-tiktoken": "^1.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.1"
+  }
+}

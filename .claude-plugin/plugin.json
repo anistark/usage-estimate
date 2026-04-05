@@ -1,0 +1,9 @@
+{
+  "name": "usage-estimate",
+  "description": "Displays estimated token count for each prompt before submission. Optionally blocks prompts exceeding a configurable threshold.",
+  "author": {
+    "name": "Kumar Anirudha",
+    "url": "https://github.com/anistark"
+  },
+  "version": "0.1.0"
+}

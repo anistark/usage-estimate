@@ -1,0 +1,16 @@
+{
+  "description": "Estimates token count for user prompts before submission",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/node ${CLAUDE_PLUGIN_ROOT}/hooks/usage-estimate.mjs",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
