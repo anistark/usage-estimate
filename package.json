@@ -1,6 +1,6 @@
 {
   "name": "usage-estimate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Token estimation plugin for Claude Code. Shows estimated token count before submission and optionally blocks prompts exceeding a configurable threshold.",
   "type": "module",
   "bin": {
@@ -10,8 +10,7 @@
     "bin/",
     ".claude-plugin/",
     "hooks/",
-    "skills/",
-    "pnpm-lock.yaml"
+    "skills/"
   ],
   "keywords": [
     "claude",

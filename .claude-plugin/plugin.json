@@ -5,5 +5,7 @@
     "name": "Kumar Anirudha",
     "url": "https://github.com/anistark"
   },
-  "version": "0.1.0"
+  "version": "0.1.1",
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json"
 }

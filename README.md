@@ -14,6 +14,8 @@ npx usage-estimate install
 
 Then enable the plugin in Claude Code (`/plugins`) and restart the session.
 
+To verify it's working, type any prompt and press Enter — you should see an estimated token count (e.g. `~142 tokens`) appear as a system message.
+
 ## What it does
 
 Every prompt you submit shows an estimated token count like `~142 tokens`.
@@ -30,6 +32,8 @@ Set the threshold with a slash command:
 /usage-estimate status
 ```
 
+> **Note:** Restart Claude Code after changing the threshold for it to take effect.
+
 Or add to `~/.claude/settings.json` manually:
 
 ```json
@@ -40,11 +44,11 @@ Or add to `~/.claude/settings.json` manually:
 }
 ```
 
-| Value | Behavior |
-|-------|----------|
-| `10000` (default) | Block prompts over 10k tokens |
-| Any number | Block prompts over that many tokens |
-| `0` or `null` | Never block, just show the estimate |
+| Value             | Behavior                            |
+| ----------------- | ----------------------------------- |
+| `10000` (default) | Block prompts over 10k tokens       |
+| Any number        | Block prompts over that many tokens |
+| `0` or `null`     | Never block, just show the estimate |
 
 ## Uninstall
 

@@ -13,7 +13,6 @@ const PLUGIN_DIR = join(homedir(), ".claude", "plugins", "usage-estimate");
 
 const CYAN = "\x1b[36m";
 const GREEN = "\x1b[32m";
-const RED = "\x1b[31m";
 const DIM = "\x1b[2m";
 const RESET = "\x1b[0m";
 
@@ -41,24 +40,18 @@ function install() {
     cpSync(src, dest, { recursive: true });
   }
 
-  // Also copy pnpm-lock.yaml if it exists
-  const lockFile = join(PKG_ROOT, "pnpm-lock.yaml");
-  if (existsSync(lockFile)) {
-    cpSync(lockFile, join(PLUGIN_DIR, "pnpm-lock.yaml"));
-  }
-
   // Install dependencies in plugin dir
   log("Installing dependencies...");
   const pm = detectPackageManager();
   try {
-    execSync(`${pm} install --production`, {
+    execSync(`${pm} install --omit=dev`, {
       cwd: PLUGIN_DIR,
       stdio: "pipe",
     });
   } catch {
     // Fallback to npm if preferred pm fails
     if (pm !== "npm") {
-      execSync("npm install --production", {
+      execSync("npm install --omit=dev", {
         cwd: PLUGIN_DIR,
         stdio: "pipe",
       });
