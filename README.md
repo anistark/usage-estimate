@@ -1,5 +1,9 @@
 # usage-estimate
 
+[![npm version](https://img.shields.io/npm/v/usage-estimate?color=cb3837&logo=npm)](https://www.npmjs.com/package/usage-estimate)
+[![license](https://img.shields.io/npm/l/usage-estimate?color=blue)](LICENSE)
+[![downloads](https://img.shields.io/npm/dm/usage-estimate?color=brightgreen)](https://www.npmjs.com/package/usage-estimate)
+
 Token estimation plugin for [Claude Code](https://docs.anthropic.com/en/docs/claude-code). Shows how many tokens your prompt will consume before it's sent.
 
 ## Install
