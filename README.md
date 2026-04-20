@@ -8,11 +8,14 @@ Token estimation plugin for [Claude Code](https://docs.anthropic.com/en/docs/cla
 
 ## Install
 
-```sh
-npx usage-estimate install
+Install via the [agenthub](https://github.com/nullorder/agenthub) marketplace:
+
+```
+/plugin marketplace add nullorder/agenthub
+/plugin install usage-estimate@agenthub
 ```
 
-Then enable the plugin in Claude Code (`/plugins`) and restart the session.
+If you already have agenthub enabled, just run the second command.
 
 To verify it's working, type any prompt and press Enter — you should see an estimated token count (e.g. `~142 tokens`) appear as a system message.
 
@@ -52,13 +55,13 @@ Or add to `~/.claude/settings.json` manually:
 
 ## Uninstall
 
-```sh
-npx usage-estimate uninstall
+```
+/plugin uninstall usage-estimate@agenthub
 ```
 
 ## How it works
 
-Uses a `UserPromptSubmit` hook that intercepts prompts after you press Enter but before they're sent to Claude. Tokens are counted locally using [js-tiktoken](https://github.com/openai/tiktoken) with the `cl100k_base` encoding — no API calls, no latency. The count is an approximation (~10-15% margin).
+Uses a `UserPromptSubmit` hook that intercepts prompts after you press Enter but before they're sent to Claude. Tokens are counted locally using [js-tiktoken](https://github.com/openai/tiktoken) with the `gpt-4o` (o200k_base) encoding — no API calls, no latency. The count is an approximation (~10-15% margin vs. Claude's actual tokenizer).
 
 ## License
 

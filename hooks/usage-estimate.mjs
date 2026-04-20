@@ -69,7 +69,7 @@ async function main() {
     process.exit(0); // can't parse, let it through
   }
 
-  const prompt = input.user_prompt || "";
+  const prompt = input.prompt || "";
   if (!prompt.trim()) {
     process.exit(0);
   }
@@ -80,10 +80,11 @@ async function main() {
 
   const threshold = getThreshold();
 
+  const count = tokens.toLocaleString();
+
   // Below threshold or blocking disabled → show count and allow
   if (threshold === null || tokens <= threshold) {
-    const msg = `~${tokens.toLocaleString()} tokens`;
-    process.stdout.write(JSON.stringify({ systemMessage: msg }));
+    process.stdout.write(JSON.stringify({ systemMessage: `You'd be using ~${count} tokens...` }));
     process.exit(0);
   }
 
@@ -91,14 +92,13 @@ async function main() {
   const promptHash = hashPrompt(prompt);
   if (checkState(promptHash)) {
     // Second press — allow through
-    const msg = `~${tokens.toLocaleString()} tokens (confirmed)`;
-    process.stdout.write(JSON.stringify({ systemMessage: msg }));
+    process.stdout.write(JSON.stringify({ systemMessage: `You'd be using ~${count} tokens (confirmed).` }));
     process.exit(0);
   }
 
   // First press — block and warn
   writeState(promptHash);
-  const warning = `~${tokens.toLocaleString()} tokens (exceeds ${threshold.toLocaleString()} threshold). Press Enter again to send anyway.`;
+  const warning = `You'd be using ~${count} tokens, which exceeds the ${threshold.toLocaleString()} threshold. Press Enter again to send anyway.`;
   process.stderr.write(warning);
   process.exit(2);
 }

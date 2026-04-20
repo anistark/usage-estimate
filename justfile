@@ -11,12 +11,11 @@ lint:
 
 # Type-check (no-op for now, pure JS)
 check:
-    node --check bin/cli.mjs
     node --check hooks/usage-estimate.mjs
 
 # Run tests
 test:
-    echo '{"user_prompt": "hello world"}' | node hooks/usage-estimate.mjs | node -e "const r=JSON.parse(require('fs').readFileSync(0,'utf8')); console.log('PASS:', r.systemMessage)"
+    echo '{"prompt": "hello world"}' | node hooks/usage-estimate.mjs | node -e "const r=JSON.parse(require('fs').readFileSync(0,'utf8')); console.log('PASS:', r.systemMessage)"
 
 # Dry-run publish
 build:

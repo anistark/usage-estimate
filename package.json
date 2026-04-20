@@ -1,13 +1,9 @@
 {
   "name": "usage-estimate",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Token estimation plugin for Claude Code. Shows estimated token count before submission and optionally blocks prompts exceeding a configurable threshold.",
   "type": "module",
-  "bin": {
-    "usage-estimate": "bin/cli.mjs"
-  },
   "files": [
-    "bin/",
     ".claude-plugin/",
     "hooks/",
     "skills/"
